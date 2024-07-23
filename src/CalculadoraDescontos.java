@@ -1,33 +1,31 @@
 public class CalculadoraDescontos {
 
-    public double calcularDesconto(double consumo, String tipoCliente) {
+    private Double consumo;
+    
+    private String tipoCliente;
 
-        if (tipoCliente.equals("Regular")) {
+    private DescontoStrategy calculoDesconto;
 
-            if (consumo > 1000) {
+    public void setCalculoDesconto(DescontoStrategy calculoDesconto) {
 
-                return consumo * 0.05;
-            } else {
-
-                return consumo * 0.02;
-            }
-        } else if (tipoCliente.equals("VIP")) {
-
-            if (consumo > 1000) {
-
-                return consumo * 0.10;
-            } else {
-
-                return consumo * 0.05;
-            }
-        } else if (tipoCliente.equals("Funcionario")) {
-            
-            return consumo * 0.30;
-
-        } else {
-
-            return 0;
-        }
+        this.calculoDesconto = calculoDesconto;
     }
+
+    public CalculadoraDescontos(Double consumo, String tipoCliente){
+
+        this.consumo = consumo;
+        this.tipoCliente = tipoCliente;
+
+    }
+
+    public Double calcularValorComDesconto() {
+
+        Double desconto = calculoDesconto.calcularDesconto(consumo);
+
+        return consumo - desconto;
+
+    }
+
+    
 
 }
