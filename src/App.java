@@ -25,10 +25,12 @@ public class App {
             valorConta.setCalculoDesconto(new DescontoClienteVip());
 
         } else  if (tipoCliente.equalsIgnoreCase("funcionario")){
+            
            valorConta.setCalculoDesconto(new DescontoFuncionario());
 
         } 
 
+        valorConsumo = consumo - (valorConta.getCalculoDesconto().calcularDesconto(consumo));
         System.out.println("O valor final do consumo é: R$" + valorConsumo);
 
         

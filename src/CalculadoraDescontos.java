@@ -11,6 +11,11 @@ public class CalculadoraDescontos {
         this.calculoDesconto = calculoDesconto;
     }
 
+    public DescontoStrategy getCalculoDesconto() {
+
+        return this.calculoDesconto;
+    }
+
     public CalculadoraDescontos(Double consumo, String tipoCliente){
 
         this.consumo = consumo;
